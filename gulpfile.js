@@ -1,11 +1,11 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     sass  = require('gulp-sass'),
-    rename  = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     cache  = require('gulp-cache'),
+    del = require('del'),
     htmlmin = require('gulp-htmlmin');
 
 // Add autoprefixes, compile .scss to .css and minify
@@ -13,7 +13,6 @@ gulp.task('scss', function(){
   return gulp.src('app/scss/popup-style.scss')
               .pipe(autoprefixer(['last 5 versions', 'ie 8', 'ie 7'], { cascade: true }))
               .pipe(sass({outputStyle: 'compressed'})) 
-              .pipe(rename({suffix: '.min', prefix : ''}))
               .pipe(gulp.dest('app/css')) 
 });
 
@@ -29,11 +28,6 @@ gulp.task('minify-html', function() {
   return gulp.src('app/popup.html')
               .pipe(htmlmin({collapseWhitespace: true}))
               .pipe(gulp.dest('dist'));
-});
-
-// Delete dist folder before build
-gulp.task('clean', function() {
-    return del.sync('dist'); 
 });
 
 // Optimize images

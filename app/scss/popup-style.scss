@@ -65,7 +65,7 @@ button::-moz-focus-inner {
   }
 
   .popup__icon{
-    background-image: url('./img/icon-warning_notify-red.svg');
+    background-image: url('../img/icon-warning_notify-red.svg');
     width: 150px;
     height: 150px;
     background-repeat: no-repeat;
@@ -94,7 +94,7 @@ button::-moz-focus-inner {
     font-size: 1.2rem;
   }
   .popup__button_close{
-    background-image: url('./img/icon-popup-close.svg');
+    background-image: url('../img/icon-popup-close.svg');
     width: 40px;
     height: 30px;
     background-repeat: no-repeat;
